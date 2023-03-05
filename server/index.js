@@ -1,19 +1,15 @@
-// Require the framework and instantiate it
 require("dotenv").config();
 const fastify = require("fastify")();
 const { configDb } = require("./src/core/db/db.config");
+const postRouter = require("./src/post/post.router");
 
-// Declare a route
-fastify.get("/", async (request, reply) => {
-  console.log(process.env);
-  return { hello: "world23" };
-});
+fastify.register((app, options, done) => postRouter(app, options, done));
 
-// Run the server!
 const start = async () => {
   try {
     await fastify.listen({ port: 3000 });
     await configDb.authenticate();
+    await configDb.sync();
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
