@@ -1,13 +1,13 @@
 class AbstractController {
   getAll(req, res) {}
 
-  async getOne(req, res) {}
+  getOne(req, res) {}
 
-  async create(req, res) {}
+  create(req, res) {}
 
-  async update(req, res) {}
+  update(req, res) {}
 
-  async remove(req, res) {}
+  remove(req, res) {}
 }
 
 module.exports = AbstractController;

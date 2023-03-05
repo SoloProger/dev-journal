@@ -2,11 +2,11 @@ const AbstractController = require("../core/abstract/controller.abstract");
 const PostService = require("./post.service");
 
 class PostController extends AbstractController {
-  service;
+  #service;
 
   constructor() {
     super();
-    this.service = PostService;
+    this.#service = PostService;
     this.getAll = this.getAll.bind(this);
     this.getOne = this.getOne.bind(this);
     this.create = this.create.bind(this);
@@ -14,25 +14,29 @@ class PostController extends AbstractController {
     this.remove = this.remove.bind(this);
   }
 
-  getAll(res, req) {
-    const posts = this.service.getPosts();
+  getAll(req, res) {
+    const posts = this.#service.getPosts();
     return posts;
   }
 
-  async getOne(req, res) {
-    return { getOne: "post1" };
+  getOne(req, res) {
+    const post = this.#service.getPostById(req.params.id);
+    return post;
   }
 
-  async create(req, res) {
-    return { create: { name: "Post" } };
+  create(req, res) {
+    const post = this.#service.createPost(req.body);
+    return post;
   }
 
-  async update(req, res) {
-    return { update: { name: "Post 2" } };
+  update(req, res) {
+    const updatedPost = this.#service.updatePost(req.body, req.params.id);
+    return updatedPost;
   }
 
-  async remove(req, res) {
-    return { remove: "post" };
+  remove(req, res) {
+    const removedPost = this.#service.removePost(req.params.id);
+    return removedPost;
   }
 }
 

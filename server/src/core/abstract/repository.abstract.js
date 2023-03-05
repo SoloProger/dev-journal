@@ -6,7 +6,8 @@ class AbstractRepository {
   }
 
   async save(body) {
-    await this.#model.create(body);
+    const createdPost = await this.#model.create(body);
+    return createdPost;
   }
 
   async getAll() {
@@ -14,7 +15,18 @@ class AbstractRepository {
   }
 
   async getById(id, attribute = "id") {
-    return await this.#model.findAll({ where: { attribute: id } });
+    return await this.#model.findAll({ where: { [attribute]: id } });
+  }
+
+  async update(body, id, attribute = "id") {
+    const result = await this.#model.update(body, {
+      where: { [attribute]: id },
+    });
+    return result;
+  }
+
+  async remove(id, attribute = "id") {
+    const result = await this.#model.destroy({ where: { [attribute]: id } });
   }
 }
 

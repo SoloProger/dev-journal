@@ -13,6 +13,26 @@ class PostService {
     const posts = await this.#repository.getAll();
     return posts;
   }
+
+  async getPostById(id) {
+    const post = await this.#repository.getById(id);
+    return post;
+  }
+
+  async createPost(body) {
+    const result = await this.#repository.save(body);
+    return result;
+  }
+
+  async updatePost(body, id) {
+    const result = await this.#repository.update(body, id);
+    return result;
+  }
+
+  async removePost(id) {
+    const result = await this.#repository.remove(id);
+    return result;
+  }
 }
 
 module.exports = new PostService();
