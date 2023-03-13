@@ -1,5 +1,5 @@
-function App() {
-  return <div>Hello World</div>;
-}
+import MainLayout from "../src/shared/layouts/MainLayout.jsx";
 
-export default App;
+export default function App() {
+  return <MainLayout />;
+}
