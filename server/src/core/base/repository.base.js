@@ -8,7 +8,10 @@ class BaseRepository extends AbstractRepository {
     this.#model = model;
   }
 
-  async save(body) {
+  async save(body, id) {
+    if (id) {
+      return this.#update(body, id);
+    }
     const createdPost = await this.#model.create(body);
     return createdPost;
   }
@@ -21,7 +24,7 @@ class BaseRepository extends AbstractRepository {
     return await this.#model.findAll({ where: { [attribute]: id } });
   }
 
-  async update(body, id, attribute = "id") {
+  async #update(body, id, attribute = "id") {
     const result = await this.#model.update(body, {
       where: { [attribute]: id },
     });

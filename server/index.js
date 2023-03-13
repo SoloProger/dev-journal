@@ -1,10 +1,14 @@
 require("dotenv").config();
 const fastify = require("fastify")();
 const { configDb } = require("./src/core/db/db.config");
-const postRouter = require("./src/post/post.router");
 require("./src/relationships/user-role");
+const postRouter = require("./src/post/post.router");
+const roleRouter = require("./src/role/role.router");
+const userRouter = require("./src/user/user.router");
 
 fastify.register((app, options, done) => postRouter(app, options, done));
+fastify.register((app, options, done) => roleRouter(app, options, done));
+fastify.register((app, options, done) => userRouter(app, options, done));
 
 const start = async () => {
   try {
