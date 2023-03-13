@@ -30,7 +30,7 @@ class BaseService extends AbstractService {
   }
 
   async updateEntity(body, id) {
-    const result = await this.#repository.update(body, id);
+    const result = await this.#repository.save(body, id);
     return result;
   }
 
