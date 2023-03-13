@@ -2,6 +2,7 @@ require("dotenv").config();
 const fastify = require("fastify")();
 const { configDb } = require("./src/core/db/db.config");
 const postRouter = require("./src/post/post.router");
+require("./src/relationships/user-role");
 
 fastify.register((app, options, done) => postRouter(app, options, done));
 
