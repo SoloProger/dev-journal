@@ -1,6 +1,6 @@
 import React from "react";
-import MainTitle from "../shared/components/main/main-title/MainTitle";
-import RecentPost from "../shared/components/main/recent-post/RecentPost";
+import MainTitle from "@components/main/main-title/MainTitle";
+import RecentPost from "@components/main/recent-post/RecentPost";
 
 export default function Main() {
   return (

@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Post from "@pages/Post";
+import Blog from "@pages/Blog";
+import Main from "@pages/Main";
 import MainLayout from "../layouts/MainLayout";
-import Blog from "../../pages/Blog";
-import Main from "../../pages/Main";
 
 export const router = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <div>Main</div>,
+        element: <Main />,
       },
       {
         path: "/blog",
-        element: <div>Blog</div>,
+        element: <Blog />,
       },
       {
         path: "/blog/post/:postId",

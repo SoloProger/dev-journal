@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Post() {
   return (
-    <article className="w-full  max-w-4xl m-auto p-6 flex flex-col gap-10 justify-center">
+    <main className="w-full  max-w-4xl m-auto p-6 flex flex-col gap-10 justify-center">
       <section className="flex flex-col gap-8 justify-center">
         <h2 className="text-4xl font-bold">
           Designing Dashboards with usability in mind
@@ -35,6 +35,6 @@ export default function Post() {
           veniam consequat sunt nostrud amet.
         </p>
       </section>
-    </article>
+    </main>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "../../../../ui/input/Input";
-import Textarea from "../../../../ui/textarea/Textarea";
 import PropTypes from "prop-types";
-import Button from "../../../../ui/button/Button";
+import Input from "@ui/input/Input";
+import Textarea from "@ui/textarea/Textarea";
+import Button from "@ui/button/Button";
 
 export default function AddPost({
   submit,
