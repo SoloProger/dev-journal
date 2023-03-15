@@ -11,9 +11,4 @@ export const navbarLinkList = [
     path: "/blog",
     name: "Блог",
   },
-  {
-    key: generate(),
-    path: "/contacts",
-    name: "Контакты",
-  },
 ];

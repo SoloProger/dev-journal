@@ -9,8 +9,4 @@ export const router = createBrowserRouter([
     path: "/blog",
     element: <div>Blog</div>,
   },
-  {
-    path: "/contacts",
-    element: <div>Contacts</div>,
-  },
 ]);
