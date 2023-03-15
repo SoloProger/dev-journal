@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Card.module.css";
-import Button from "../../ui/button/Button";
+import Button from "@ui/button/Button";
 
 export default function Card({
   title,
