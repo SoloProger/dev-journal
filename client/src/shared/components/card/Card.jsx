@@ -11,6 +11,8 @@ export default function Card({
   extraStyles = "",
   isDefiner = false,
   withAction = false,
+  editAction,
+  removeAction,
 }) {
   return (
     <div className={`flex flex-col bg-white gap-8 p-6 w-full ${extraStyles}`}>
@@ -18,8 +20,8 @@ export default function Card({
         <h3 className="font-bold text-2xl">{title}</h3>
         {withAction && (
           <span className="flex items-center gap-3">
-            <Button text="Редактировать" />
-            <Button text="Удалить" />
+            <Button text="Редактировать" onClick={editAction} />
+            <Button text="Удалить" onClick={removeAction} />
           </span>
         )}
       </span>

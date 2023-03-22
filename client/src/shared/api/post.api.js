@@ -15,4 +15,9 @@ export default class PostApi {
     const post = await axios.post(`${env.baseApi}/post`, body);
     return post.data;
   }
+
+  async deletePost(id) {
+    const post = await axios.delete(`${env.baseApi}/post/${id}`);
+    return post.data;
+  }
 }

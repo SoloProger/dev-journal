@@ -27,7 +27,7 @@ export default function AddPost({
       />
       <Textarea
         type="text"
-        labelText="Описание"
+        labelText="Краткое описание"
         value={textAreaState}
         onChange={textAreaChange}
       />

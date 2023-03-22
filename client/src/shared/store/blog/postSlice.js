@@ -27,12 +27,24 @@ export const addNewPost = createAsyncThunk(
   }
 );
 
+export const removePost = createAsyncThunk(
+  "post/remove",
+  async (payload, thunkApi) => {
+    const post = await postApi.deletePost(payload);
+    thunkApi.dispatch(popPost(payload));
+    return post;
+  }
+);
+
 export const postSlice = createSlice({
   name: "post",
   initialState,
   reducers: {
     addPost(state, action) {
       state.posts.push(action.payload);
+    },
+    popPost(state, action) {
+      state.posts = state.posts.filter((value) => value.id !== action.payload);
     },
   },
   extraReducers: (builder) => {
@@ -46,6 +58,6 @@ export const postSlice = createSlice({
   },
 });
 
-const { addPost } = postSlice.actions;
+const { addPost, popPost } = postSlice.actions;
 
 export default postSlice.reducer;
