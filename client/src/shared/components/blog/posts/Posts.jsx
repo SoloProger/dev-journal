@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import Card from "@components/card/Card";
 
 export default function Posts({ posts, editAction, removeAction }) {
+  const navigate = useNavigate();
   return (
     <section>
       {posts.map(({ id, title, description, date, tag }) => (
@@ -18,6 +20,7 @@ export default function Posts({ posts, editAction, removeAction }) {
             editAction({ id, title, description, date, tag, event })
           }
           removeAction={() => removeAction(id)}
+          toPost={() => navigate(`post/${id}`)}
         />
       ))}
     </section>

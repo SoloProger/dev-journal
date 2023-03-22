@@ -21,10 +21,6 @@ export const router = createBrowserRouter([
         path: "/blog/post/:postId",
         element: <Post />,
       },
-      {
-        path: "/contacts",
-        element: <div>Contacts</div>,
-      },
     ],
   },
 ]);

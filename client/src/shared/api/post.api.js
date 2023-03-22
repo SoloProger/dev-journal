@@ -9,7 +9,10 @@ export default class PostApi {
     return posts.data;
   }
 
-  async getPostById() {}
+  async getPostById(id) {
+    const post = await axios.get(`http://localhost:5000/post/${id}`);
+    return post.data;
+  }
 
   async createPost(body) {
     const post = await axios.post(`${env.baseApi}/post`, body);

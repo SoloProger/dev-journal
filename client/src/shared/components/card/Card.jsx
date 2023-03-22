@@ -13,9 +13,13 @@ export default function Card({
   withAction = false,
   editAction,
   removeAction,
+  toPost,
 }) {
   return (
-    <div className={`flex flex-col bg-white gap-8 p-6 w-full ${extraStyles}`}>
+    <div
+      onClick={toPost}
+      className={`flex flex-col bg-white gap-8 p-6 w-full ${extraStyles}`}
+    >
       <span className="flex items-center justify-between">
         <h3 className="font-bold text-2xl">{title}</h3>
         {withAction && (
