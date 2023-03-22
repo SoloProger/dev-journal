@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Posts from "@components/blog/posts/Posts";
 import AddPost from "@components/blog/forms/add-post/AddPost";
 import Button from "@ui/button/Button";
 import Modal from "@ui/modal/Modal";
-import { useSelector, useDispatch } from "react-redux";
 import { loadPost, addNewPost } from "@store/blog/postSlice";
+import { useClearValue } from "@hooks/useClearValue";
 
 export default function Blog() {
   const [open, setOpen] = useState(false);
@@ -13,6 +14,7 @@ export default function Blog() {
 
   const posts = useSelector((state) => state.post.posts);
   const dispatch = useDispatch();
+  const setClear = useClearValue(setInputValue, setTextareaValue);
 
   const formSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +23,7 @@ export default function Blog() {
       description: textareaValue,
     };
     dispatch(addNewPost(post));
+    setClear.map((fn) => fn(""));
     setOpen(false);
   };
 

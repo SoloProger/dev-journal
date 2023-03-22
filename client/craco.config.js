@@ -10,6 +10,7 @@ module.exports = {
       "@ui": path.resolve(__dirname, "src/shared/ui"),
       "@store": path.resolve(__dirname, "src/shared/store"),
       "@api": path.resolve(__dirname, "src/shared/api"),
+      "@hooks": path.resolve(__dirname, "src/shared/hooks"),
     },
   },
 };

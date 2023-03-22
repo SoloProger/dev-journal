@@ -3,6 +3,7 @@ import PostApi from "@api/post.api";
 
 const initialState = {
   posts: [],
+  recentPosts: [],
 };
 
 const postApi = new PostApi();
@@ -10,6 +11,11 @@ const postApi = new PostApi();
 export const loadPost = createAsyncThunk("post/load", async () => {
   const posts = await postApi.getPosts();
   return posts;
+});
+
+export const loadRecentPosts = createAsyncThunk("recentPost", async () => {
+  const recentPosts = await postApi.getPosts({ recent: true });
+  return recentPosts;
 });
 
 export const addNewPost = createAsyncThunk(
@@ -30,9 +36,13 @@ export const postSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loadPost.fulfilled, (state, action) => {
-      state.posts = action.payload;
-    });
+    builder
+      .addCase(loadPost.fulfilled, (state, action) => {
+        state.posts = action.payload;
+      })
+      .addCase(loadRecentPosts.fulfilled, (state, action) => {
+        state.recentPosts = action.payload;
+      });
   },
 });
 
