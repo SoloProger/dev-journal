@@ -10,8 +10,8 @@ class AbstractRepository {
     return createdPost;
   }
 
-  async getAll() {
-    return await this.#model.findAll();
+  async getAll(options) {
+    return await this.#model.findAll(options);
   }
 
   async getById(id, attribute = "id") {

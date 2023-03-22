@@ -15,6 +15,10 @@ class PostController extends AbstractController {
   }
 
   getAll(req, res) {
+    if (req.query.recent) {
+      const recentPost = this.#service.getRecentPosts();
+      return recentPost;
+    }
     const posts = this.#service.getPosts();
     return posts;
   }

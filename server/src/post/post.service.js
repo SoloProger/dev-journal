@@ -19,6 +19,14 @@ class PostService {
     return post;
   }
 
+  async getRecentPosts() {
+    const recentPosts = await this.#repository.getAll({
+      limit: 2,
+      order: [["createdAt", "DESC"]],
+    });
+    return recentPosts;
+  }
+
   async createPost(body) {
     const result = await this.#repository.save(body);
     return result;
