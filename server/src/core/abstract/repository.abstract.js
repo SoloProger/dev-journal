@@ -15,13 +15,14 @@ class AbstractRepository {
   }
 
   async getById(id, attribute = "id") {
-    return await this.#model.findAll({ where: { [attribute]: id } });
+    return await this.#model.findOne({ where: { [attribute]: id } });
   }
 
   async update(body, id, attribute = "id") {
-    const result = await this.#model.update(body, {
+    await this.#model.update(body, {
       where: { [attribute]: id },
     });
+    const result = await this.getById(id, attribute);
     return result;
   }
 

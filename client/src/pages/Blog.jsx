@@ -4,13 +4,20 @@ import Posts from "@components/blog/posts/Posts";
 import AddPost from "@components/blog/forms/add-post/AddPost";
 import Button from "@ui/button/Button";
 import Modal from "@ui/modal/Modal";
-import { loadPost, addNewPost, removePost } from "@store/blog/postSlice";
+import {
+  loadPost,
+  addNewPost,
+  removePost,
+  editCurrentPost,
+} from "@store/blog/postSlice";
 import { useClearValue } from "@hooks/useClearValue";
 
 export default function Blog() {
   const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
+  const [postId, setPostId] = useState(null);
 
   const posts = useSelector((state) => state.post.posts);
   const dispatch = useDispatch();
@@ -27,10 +34,23 @@ export default function Blog() {
     setOpen(false);
   };
 
-  const editForm = (post) => {
+  const editFormSubmit = (event) => {
+    event.preventDefault();
+    const post = {
+      id: postId,
+      title: inputValue,
+      description: textareaValue,
+    };
+    dispatch(editCurrentPost(post));
+    setClear.map((fn) => fn(""));
+    setOpenEdit(false);
+  };
+
+  const setEditFormValue = (post) => {
+    setOpenEdit(true);
     setInputValue(post.title);
     setTextareaValue(post.description);
-    setOpen(true);
+    setPostId(post.id);
   };
 
   const _removePost = (postId) => {
@@ -62,7 +82,26 @@ export default function Blog() {
           />
         </Modal>
       )}
-      <Posts posts={posts} editAction={editForm} removeAction={_removePost} />
+      {openEdit && (
+        <Modal title="Редактировать пост" setOpen={setOpenEdit}>
+          <AddPost
+            submit={editFormSubmit}
+            inputState={inputValue}
+            inputChange={(event) => setInputValue(event.target.value)}
+            textAreaState={textareaValue}
+            textAreaChange={(event) => setTextareaValue(event.target.value)}
+            firstButtonText="Сохранить"
+            secondButtonText="Отмена"
+            secondButtonAction={() => setOpenEdit(false)}
+            firstButtonType="submit"
+          />
+        </Modal>
+      )}
+      <Posts
+        posts={posts}
+        editAction={setEditFormValue}
+        removeAction={_removePost}
+      />
     </main>
   );
 }

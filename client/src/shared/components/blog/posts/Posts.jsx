@@ -14,7 +14,9 @@ export default function Posts({ posts, editAction, removeAction }) {
           extraStyles="border-x"
           isDefiner={true}
           withAction={true}
-          editAction={() => editAction({ title, description, date, tag })}
+          editAction={(event) =>
+            editAction({ id, title, description, date, tag, event })
+          }
           removeAction={() => removeAction(id)}
         />
       ))}
