@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Card from "@components/card/Card";
 
 export default function RecentPost({ recentPosts }) {
+  const navigate = useNavigate();
   return (
     <section className="flex flex-col py-7 px-36 gap-5">
       <span className="flex items-center justify-between p-6">
@@ -10,8 +11,8 @@ export default function RecentPost({ recentPosts }) {
         <Link to="/blog">Посмотреть все</Link>
       </span>
       <div className="flex gap-5">
-        {recentPosts.map(({ title, description, date, tag }) => (
-          <Card title={title} description={description} date={date} tag={tag} />
+        {recentPosts.map(({ id, title, description, date, tag }) => (
+          <Card title={title} description={description} date={date} tag={tag}  toPost={() => navigate(`blog/post/${id}`)} />
         ))}
       </div>
     </section>

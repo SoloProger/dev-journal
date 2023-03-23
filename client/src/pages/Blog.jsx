@@ -4,6 +4,7 @@ import Posts from "@components/blog/posts/Posts";
 import AddPost from "@components/blog/forms/add-post/AddPost";
 import Button from "@ui/button/Button";
 import Modal from "@ui/modal/Modal";
+import Loading from "@ui/loading/Loading";
 import {
   loadPost,
   addNewPost,
@@ -20,6 +21,7 @@ export default function Blog() {
   const [postId, setPostId] = useState(null);
 
   const posts = useSelector((state) => state.post.posts);
+  const loading = useSelector((state) => state.post.loading);
   const dispatch = useDispatch();
   const setClear = useClearValue(setInputValue, setTextareaValue);
 
@@ -63,7 +65,7 @@ export default function Blog() {
 
   return (
     <main className="w-full flex flex-col max-w-4xl m-auto">
-      <div className="p-6 flex items-center justify-between">
+      <div className="flex items-center justify-between mb-20">
         <h1 className="font-bold text-5xl">Блог</h1>
         <Button text="Добавить" onClick={() => setOpen(true)} />
       </div>
@@ -97,11 +99,15 @@ export default function Blog() {
           />
         </Modal>
       )}
-      <Posts
-        posts={posts}
-        editAction={setEditFormValue}
-        removeAction={_removePost}
-      />
+      {loading ? (
+        <Loading />
+      ) : (
+        <Posts
+          posts={posts}
+          editAction={setEditFormValue}
+          removeAction={_removePost}
+        />
+      )}
     </main>
   );
 }

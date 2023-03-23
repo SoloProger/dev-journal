@@ -4,6 +4,7 @@ import PostApi from "@api/post.api";
 const initialState = {
   posts: [],
   recentPosts: [],
+  loading: false,
 };
 
 const postApi = new PostApi();
@@ -66,9 +67,17 @@ export const postSlice = createSlice({
     builder
       .addCase(loadPost.fulfilled, (state, action) => {
         state.posts = action.payload;
+        state.loading = false;
+      })
+      .addCase(loadPost.pending, (state, action) => {
+        state.loading = true;
       })
       .addCase(loadRecentPosts.fulfilled, (state, action) => {
         state.recentPosts = action.payload;
+        state.loading = false;
+      })
+      .addCase(loadRecentPosts.pending, (state, action) => {
+        state.loading = true;
       });
   },
 });

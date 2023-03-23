@@ -16,9 +16,7 @@ export default function Posts({ posts, editAction, removeAction }) {
           extraStyles="border-x"
           isDefiner={true}
           withAction={true}
-          editAction={(event) =>
-            editAction({ id, title, description, date, tag, event })
-          }
+          editAction={() => editAction({ id, title, description, date, tag })}
           removeAction={() => removeAction(id)}
           toPost={() => navigate(`post/${id}`)}
         />
