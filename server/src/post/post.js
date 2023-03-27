@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { configDb } = require("../core/db/db.config");
+const Category = require('../category/category');
 
 const Post = configDb.define(
   "Post",
@@ -17,7 +18,7 @@ const Post = configDb.define(
       type: DataTypes.TEXT,
     },
   },
-  { tableName: "Posts" }
+  { tableName: "posts" }
 );
 
 module.exports = Post;

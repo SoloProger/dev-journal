@@ -1,5 +1,6 @@
 const AbstractRepository = require("../core/abstract/repository.abstract");
 const Post = require("./post");
+const Category = require("../category/category");
 
 class PostService {
   #repository;
@@ -10,7 +11,18 @@ class PostService {
   }
 
   async getPosts() {
-    const posts = await this.#repository.getAll();
+    const posts = await this.#repository.getAll({
+      include: [
+        {
+          model: Category,
+          as: "categories",
+          attributes: ["id", "name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
     return posts;
   }
 
@@ -28,7 +40,19 @@ class PostService {
   }
 
   async createPost(body) {
-    const result = await this.#repository.save(body);
+    const result = await this.#repository.save(
+      body,
+      {
+        include: {
+          model: Category,
+          as: "categories",
+        },
+      },
+    );
+
+    const category = await Category.findByPk(body.categoryId);
+    result.addCategory(category, { through: "post_categories" });
+
     return result;
   }
 

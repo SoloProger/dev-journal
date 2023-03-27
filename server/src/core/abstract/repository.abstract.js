@@ -5,8 +5,8 @@ class AbstractRepository {
     this.#model = model;
   }
 
-  async save(body) {
-    const createdPost = await this.#model.create(body);
+  async save(body, options) {
+    const createdPost = await this.#model.create(body, options);
     return createdPost;
   }
 
@@ -28,6 +28,11 @@ class AbstractRepository {
 
   async remove(id, attribute = "id") {
     const result = await this.#model.destroy({ where: { [attribute]: id } });
+  }
+
+  async findOne(id) {
+    const result = await this.#model.findByPk(id);
+    return result;
   }
 }
 
