@@ -1,17 +1,21 @@
 const AbstractController = require("../core/abstract/controller.abstract");
+const FileService = require("../core/base/file-service");
 const PostService = require("./post.service");
 
 class PostController extends AbstractController {
   #service;
+  #fileService;
 
   constructor() {
     super();
     this.#service = PostService;
+    this.#fileService = new FileService();
     this.getAll = this.getAll.bind(this);
     this.getOne = this.getOne.bind(this);
     this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.remove = this.remove.bind(this);
+    this.upload = this.upload.bind(this);
   }
 
   getAll(req, res) {
@@ -41,6 +45,11 @@ class PostController extends AbstractController {
   remove(req, res) {
     const removedPost = this.#service.removePost(req.params.id);
     return removedPost;
+  }
+
+  upload(req, reply) {
+    const result = this.#fileService.upload(req, reply);
+    return result;
   }
 }
 

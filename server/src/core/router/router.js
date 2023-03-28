@@ -28,6 +28,10 @@ class Router {
   remove() {
     this.#app.delete(`${this.#path}/:id`, this.#controller.remove);
   }
+
+  upload() {
+    this.#app.post(`/posts/upload`, this.#controller.upload);
+  }
 }
 
 module.exports = Router;

@@ -10,5 +10,6 @@ module.exports = (app, options, done) => {
   _router.create();
   _router.update();
   _router.remove();
+  _router.upload();
   done();
 };
