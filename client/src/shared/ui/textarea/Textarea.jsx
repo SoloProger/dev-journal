@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Textarea({ labelText, ...props }) {
+export default function Textarea({ labelText, textareaRef, ...props }) {
   return (
     <span className="flex flex-col gap-1 justify-center">
       {labelText && (
@@ -8,7 +8,7 @@ export default function Textarea({ labelText, ...props }) {
           {labelText}
         </label>
       )}
-      <textarea className="border p-2 rounded w-full" {...props}></textarea>
+      <textarea ref={textareaRef} className="border p-2 rounded w-full" {...props}></textarea>
     </span>
   );
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Posts from "@components/blog/posts/Posts";
 import AddPost from "@components/blog/forms/add-post/AddPost";
+import AddPostContent from "@components/blog/forms/add-post-content/AddPostContent";
 import Button from "@ui/button/Button";
 import Modal from "@ui/modal/Modal";
 import Loading from "@ui/loading/Loading";
@@ -19,6 +20,7 @@ export default function Blog() {
   const [inputValue, setInputValue] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
   const [postId, setPostId] = useState(null);
+  const [formControls, setFormControls] = useState([]);
 
   const posts = useSelector((state) => state.post.posts);
   const loading = useSelector((state) => state.post.loading);
@@ -30,6 +32,7 @@ export default function Blog() {
     const post = {
       title: inputValue,
       description: textareaValue,
+      content: [...formControls],
     };
     dispatch(addNewPost(post));
     setClear.map((fn) => fn(""));
@@ -59,6 +62,10 @@ export default function Blog() {
     dispatch(removePost(postId));
   };
 
+  const handleControls = (values) => {
+    setFormControls(values);
+  };
+
   useEffect(() => {
     dispatch(loadPost());
   }, [dispatch]);
@@ -81,7 +88,10 @@ export default function Blog() {
             secondButtonText="Отмена"
             secondButtonAction={() => setOpen(false)}
             firstButtonType="submit"
-          />
+            formControls={formControls}
+          >
+            <AddPostContent getControls={handleControls} />
+          </AddPost>
         </Modal>
       )}
       {openEdit && (

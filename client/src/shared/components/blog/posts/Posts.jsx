@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import generate from "@utils/generatorUnikKeys";
 
 import Card from "@components/card/Card";
 
@@ -9,6 +10,7 @@ export default function Posts({ posts, editAction, removeAction }) {
     <section>
       {posts.map(({ id, title, description, date, tag }) => (
         <Card
+          key={generate()}
           title={title}
           description={description}
           date={date}

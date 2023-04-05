@@ -16,6 +16,8 @@ export default function AddPost({
   secondButtonAction,
   firstButtonType,
   secondButtonType,
+  formControls,
+  children,
 }) {
   return (
     <form className="flex flex-col justify-center gap-4" onSubmit={submit}>
@@ -31,6 +33,24 @@ export default function AddPost({
         value={textAreaState}
         onChange={textAreaChange}
       />
+      {formControls &&
+        formControls.map((control, idx) => (
+          <span className="flex w-full flex-col justify-center gap-4" key={idx}>
+            <Input
+              type="text"
+              labelText="Загаловок абзаца"
+              value={control.title}
+              onChange={inputChange}
+            />
+            <Textarea
+              type="text"
+              labelText="Контент"
+              value={control.description}
+              onChange={textAreaChange}
+            />
+          </span>
+        ))}
+      {children}
       <div className="flex items-center justify-end gap-3">
         <Button
           animateOff={true}
