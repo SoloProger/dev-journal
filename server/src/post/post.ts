@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize");
-const { configDb } = require("../core/db/db.config");
+import { DataTypes } from "sequelize";
+import configDb from "../core/db/db.config";
 
 const Post = configDb.define(
   "Post",
@@ -20,4 +20,4 @@ const Post = configDb.define(
   { tableName: "Posts" }
 );
 
-module.exports = Post;
+export default Post;

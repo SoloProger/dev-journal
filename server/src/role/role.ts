@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize");
-const { configDb } = require("../core/db/db.config");
+import { DataTypes } from "sequelize";
+import configDb from "../core/db/db.config";
 
 const Role = configDb.define(
   "Role",
@@ -17,4 +17,4 @@ const Role = configDb.define(
   { tableName: "Roles" }
 );
 
-module.exports = Role;
+export default Role;

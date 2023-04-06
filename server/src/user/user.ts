@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize");
-const { configDb } = require("../core/db/db.config");
+import { DataTypes } from "sequelize";
+import configDb from "../core/db/db.config";
 
 const User = configDb.define(
   "User",
@@ -21,5 +21,4 @@ const User = configDb.define(
   { tableName: "Users" }
 );
 
-
-module.exports = User;
+export default User;
