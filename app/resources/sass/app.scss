@@ -1,8 +1,52 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
-// Variables
-@import 'variables';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "variables";
+
+.item {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    position: relative;
+
+    &-link {
+        color: #000;
+        text-decoration: none;
+
+        &:hover {
+            color: #000;
+        }
+    }
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #21243d;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.date {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.date::after {
+    content: "";
+    border: 1px solid #21243d;
+    background-color: #21243d;
+}
