@@ -8,25 +8,23 @@
             <button text="Добавить">Добавить</button>
         </div>
         <section>
-            {{-- @foreach ($posts as $post) --}}
+            @foreach ($posts as $post)
                 <div class='flex flex-col bg-white gap-8 p-6 w-full '>
                     <span class="flex items-center justify-between">
                         <h3 class="font-bold text-2xl cursor-pointer">
-                            Lorem ipsum dolor sit amet consectetur.
+                            {{ $post->title }}
                         </h3>
                     </span>
                     <div class="flex gap-7">
-                        <span class="date">Дата</span>
+                        <span class="date">{{ $post->formatData() }}</span>
                         <span>Категория</span>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta hic illum, in voluptatem iste
-                        quisquam ipsa quod id tempora repellendus! Omnis fuga magni sequi atque molestiae architecto.
-                        Dolore, ipsum ea.
+                        {{ $post->getDescriptionPreview(400) }}
                     </p>
                     <hr>
                 </div>
-            {{-- @endforeach --}}
+            @endforeach
         </section>
     </main>
 @endsection
