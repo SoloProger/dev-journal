@@ -36,7 +36,7 @@ export default function Post() {
         </p>
       </section>
       <section className="flex flex-col gap-10">
-        <img src="/post-image.png" alt="alt" />
+        <img src="/app/assets/images/post-image.png" alt="alt" />
         <h3 className="text-3xl font-bold">Заголовок</h3>
         <h4 className="text-2xl font-bold">Подзаголовок</h4>
         <p>
