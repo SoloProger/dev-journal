@@ -36,3 +36,4 @@ function getPost($connect, $id)
         return mysqli_fetch_assoc($post);
     }
 }
+

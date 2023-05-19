@@ -9,12 +9,11 @@
     <section class="flex justify-center items-center gap-28">
         <div class="flex flex-col gap-10 w-2/4">
             <h1 class="font-bold text-5xl">
-                Hi, I am John, Creative Technologist
+                Добро пожаловать!
             </h1>
-            <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                sint. Velit officia consequat duis enim velit mollit. Exercitation
-                veniam consequat sunt nostrud amet.
+            <p class="text-2xl">
+                <b>Дневник разработчика</b> - это авторский блог, на котором выходят заметки, полезные статьи и всякая
+                билеберда. Проходи, здесь интересно.
             </p>
         </div>
         <img src="assets/images/book.jpg" alt="" class="rounded-full w-[245px] h-[240px]"/>
