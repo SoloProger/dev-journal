@@ -1,4 +1,9 @@
+*, *::after, *::before {
+    cursor: default;
+}
+
 .item, .item-link {
+    cursor: pointer;
     font-weight: 500;
     font-size: 20px;
     line-height: 29px;
