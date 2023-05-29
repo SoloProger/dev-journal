@@ -9,17 +9,18 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet"/>
 
     @vite('resources/css/app.css')
 
 </head>
 
 <body>
-    @include('partials.navbar')
-    @include('partials.hero')
-    @yield('content')
-    @vite('resources/js/app.js')
+@include('partials.navbar')
+@include('partials.hero')
+@yield('content')
+@include('partials.footer')
+@vite('resources/js/app.js')
 </body>
 
 </html>

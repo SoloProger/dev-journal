@@ -5,4 +5,16 @@
 @tailwind utilities;
 
 
+body {
+    background: #f9f4f4;
+}
 
+.footer-link{
+    display: flex;
+    gap: 2.5rem;
+}
+
+.footer-link::after {
+    content: "";
+    border: 1px solid #000;
+}

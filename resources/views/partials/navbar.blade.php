@@ -1,4 +1,4 @@
-<nav class="p-6 flex justify-between items-center">
+<nav class="p-6 flex justify-between items-center bg-white">
     <span class="text-2xl">Dev Journal</span>
     <ul class="flex gap-10">
         <li class="hover:text-[#5D71DD] hover:underline">Main</li>
