@@ -17,7 +17,7 @@
 
 <body>
 @include('partials.navbar')
-@include('partials.hero')
+@yield('hero')
 @yield('content')
 @include('partials.footer')
 @vite('resources/js/app.js')

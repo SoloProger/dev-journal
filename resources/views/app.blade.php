@@ -2,6 +2,9 @@
 
 @section('title', 'Главная страница')
 
+@section('hero')
+    @include('partials.hero')
+@endsection
 
 @section('content')
     <main class="flex px-28 mb-20">
