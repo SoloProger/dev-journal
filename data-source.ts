@@ -1,21 +1,16 @@
 import { DataSource } from 'typeorm';
 
-const AppDataSource = new DataSource({
-  type: process.env.DB_DIALECT,
-  host: process.env.DB_HOST,
-  port: +process.env.DB_PORT,
-  username: process.env.USER_NAME,
-  password: process.env.USER_PASSWORD,
-  database: process.env.DB_NAME,
-  entities: [],
+export default new DataSource({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'root',
+  password: 'root',
+  database: 'dev_journal',
+  entities: ['src/entities/*.ts'],
+  logging: true,
   synchronize: true,
-  logging: false,
 });
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Data Source has been initialized!');
-  })
-  .catch((err) => {
-    console.error('Error during Data Source initialization', err);
-  });
+
+
