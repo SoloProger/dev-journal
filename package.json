@@ -9,7 +9,11 @@
     "build": "tsc",
     "start": "nodemon build/index.js",
     "server:start": "concurrently \" npm run build \" \"npm run start\"",
-    "server:watch": "nodemon --watch \"**\" --ext \"ts,json\" --ignore \"**/*.spec.ts\" --exec \"ts-node index.ts\""
+    "server:watch": "nodemon --watch \"**\" --ext \"ts,json\" --ignore \"**/*.spec.ts\" --exec \"ts-node index.ts\"",
+    "migration:gen": "npx typeorm-ts-node-esm migration:generate ./database/migrations/${MIG_NAME} -d data-source.ts",
+    "migration:add": "typeorm migration:create ./database/migrations/${MIG_NAME}",
+    "migration:run": "npx typeorm-ts-node-esm migration:run -d data-source.ts",
+    "migration:back": "typeorm migration:revert -d data-source.ts"
   },
   "repository": {
     "type": "git",

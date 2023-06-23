@@ -1,16 +1,33 @@
+import { PostService } from './service';
+import { Response } from 'express';
+
 export class PostController {
-  public async post() {
+
+  private readonly service: PostService;
+
+  constructor() {
+    this.service = new PostService();
+    this.posts = this.posts.bind(this);
+    this.post = this.post.bind(this);
   }
 
-  public async posts() {
+  public async post(request: any, response: any): Promise<Response> {
+    const post = await this.service.getOne(request.param.id);
+    return response.json({ message: 'success', data: post });
   }
 
-  public async createPost() {
+  public async posts(request: any, response: any): Promise<Response> {
+    const posts = await this.service.getAll();
+    return response.json({ message: 'success', data: posts });
   }
 
-  public async updatePost() {
+  public async createPost(request: Request, response: Response): Promise<void> {
+
   }
 
-  public async deletePost() {
+  public async updatePost(request: Request, response: Response): Promise<void> {
+  }
+
+  public async deletePost(request: Request, response: Response): Promise<void> {
   }
 }

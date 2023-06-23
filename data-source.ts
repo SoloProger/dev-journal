@@ -7,9 +7,11 @@ export default new DataSource({
   username: 'root',
   password: 'root',
   database: 'dev_journal',
-  entities: ['src/entities/*.ts'],
+  entities: ['src/entities/**/*.{ts,js}'],
+  migrations: ['database/migrations/**/*.{ts,js}'],
   logging: true,
   synchronize: true,
+
 });
 
 
