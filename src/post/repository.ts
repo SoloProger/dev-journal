@@ -25,8 +25,8 @@ export class PostRepository {
   }
 
   public async update(id: number, data: Post): Promise<Post> {
-    const currentPost = await this.one(id);
-    return await this.repository.merge(currentPost, data);
+    await this.repository.update(id, data);
+    return await this.one(id);
   }
 
   public async remove(id: number): Promise<unknown> {

@@ -6,6 +6,8 @@ import AppDataSource from './data-source';
 
 const app = Express();
 
+app.use(Express.json());
+
 app.use('/api', apiRouter);
 
 
