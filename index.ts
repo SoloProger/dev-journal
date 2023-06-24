@@ -1,12 +1,14 @@
 import 'dotenv/config';
 import Express from 'express';
+import cors from 'cors';
 import apiRouter from './routes/api';
 import AppDataSource from './data-source';
 
-
 const app = Express();
 
+app.use(cors());
 app.use(Express.json());
+
 
 app.use('/api', apiRouter);
 
