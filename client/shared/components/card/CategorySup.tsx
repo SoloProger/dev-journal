@@ -1,7 +1,12 @@
 import { FC } from 'react';
 
-export const CategorySup: FC = (name: string) => {
+
+export interface CategorySupProps {
+  name: string;
+}
+
+export const CategorySup: FC = ({ name }: CategorySupProps) => {
   return (
-    <span className='text-[#5D71DD] bg-[#F7F8FD] rounded-lg'>{name}</span>
+    <span className='text-[#5D71DD] bg-[#F7F8FD] rounded-lg px-4 py-2'>{name}</span>
   );
 };

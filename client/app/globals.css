@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: #e8e8e8;
+    cursor: default;
+}
