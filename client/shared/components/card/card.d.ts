@@ -8,4 +8,5 @@ export interface CardProps {
   description?: string;
   categories?: Category[];
   date?: Date;
+  isEdit?: boolean;
 }
