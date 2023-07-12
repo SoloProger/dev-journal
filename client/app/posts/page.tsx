@@ -7,6 +7,7 @@ import Filter from '@/shared/components/filters/Filter';
 import Button from '@/shared/ui/button/Button';
 import { useState } from 'react';
 import { Modal } from '@/shared/ui/modal/Modal';
+import PostForm from '@/components/post/forms/PostForm';
 
 export default function Posts() {
   const { posts, isError, isLoading } = usePosts();
@@ -36,7 +37,7 @@ export default function Posts() {
         <Filter />
       </main>
       <Pagination count={[1, 2, 3, 4, 5]} />
-      {isOpen && <Modal open={setOpen} />}
+      {isOpen && <Modal open={setOpen}><PostForm /></Modal>}
     </>
   );
 };
