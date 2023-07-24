@@ -2,7 +2,6 @@ import { PostRepository } from './repository';
 import { Post } from '../entities/post';
 
 export class PostService {
-
   public readonly repository: PostRepository;
 
   constructor() {
