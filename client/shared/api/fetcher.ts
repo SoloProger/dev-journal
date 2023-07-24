@@ -1,11 +1,18 @@
 import { api } from '@/env';
 
 export class Fetcher<T> {
+  private static readonly baseViewApi = api.baseViewApi;
 
-  private readonly static baseApi = api.baseApi;
+  private static readonly baseCommandApi = api.baseCommandApi;
 
-  static query(endpoint: string) {
-    return fetch(`${this.baseApi}/${endpoint}`).then(res => res.json());
+  public static query(endpoint: string): Promise<Response> {
+    return fetch(`${this.baseViewApi}/${endpoint}`).then((res) => res.json());
+  }
+
+  public static command(endpoint: string): Promise<Response> {
+    return fetch(`${this.baseCommandApi}/${endpoint}`).then((res) =>
+      res.json()
+    );
   }
 }
 

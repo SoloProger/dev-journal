@@ -9,6 +9,6 @@ export function usePost(id: number) {
 
 export function usePosts() {
   const fetcher = () => Fetcher.query('post');
-  const { data, error, isLoading } = useSWR('/api/post', fetcher);
+  const { data, error, isLoading } = useSWR('posts', fetcher);
   return { posts: data, isError: error, isLoading };
 }
