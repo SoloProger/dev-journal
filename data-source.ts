@@ -1,3 +1,4 @@
+import { join } from 'path';
 import { DataSource } from 'typeorm';
 
 export default new DataSource({
@@ -7,12 +8,8 @@ export default new DataSource({
   username: 'root',
   password: 'root',
   database: 'dev_journal',
-  entities: ['src/entities/**/*.{ts,js}'],
-  migrations: ['database/migrations/**/*.{ts,js}'],
+  entities: [join(__dirname, '/database/entities/**/*{.ts,.js}')],
+  migrations: [join(__dirname, '/database/migrations/**/*{.ts,.js}')],
   logging: true,
   synchronize: true,
-
 });
-
-
-

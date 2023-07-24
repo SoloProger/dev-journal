@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import PostCommands from './post-commands';
+import postCommands from './post-commands';
+import categoryCommands from './category-commands';
 
 const adminRouter = Router();
 
-adminRouter.use('/post', PostCommands);
+adminRouter.use('/post', postCommands);
+adminRouter.use('/category', categoryCommands);
 
 export default adminRouter;

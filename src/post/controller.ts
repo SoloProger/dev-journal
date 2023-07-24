@@ -27,7 +27,10 @@ export class PostController {
     request: Request,
     response: Response
   ): Promise<Response> {
-    const createdPost = await this.service.create(request.body);
+    const createdPost = await this.service.create(
+      request.body,
+      request.body.categoryIds
+    );
     return response.json({ message: 'success', data: createdPost });
   }
 
