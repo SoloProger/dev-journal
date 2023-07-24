@@ -1,4 +1,5 @@
 export const api = {
-  baseApi: 'http://localhost:9000/api',
+  baseViewApi: 'http://localhost:8800/api',
+  baseCommandApi: 'http://localhost:8800/admin',
   prodApi: '',
 };
