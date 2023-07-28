@@ -11,5 +11,4 @@ export default new DataSource({
   entities: [join(__dirname, '/database/entities/**/*{.ts,.js}')],
   migrations: [join(__dirname, '/database/migrations/**/*{.ts,.js}')],
   logging: true,
-  synchronize: true,
 });
