@@ -25,11 +25,11 @@ export class User extends BaseEntity {
     type: 'character varying',
     select: false,
   })
-  password?: string;
+  password: string;
 
   @ManyToMany(() => Role, (role) => role.users, {
     cascade: true,
   })
   @JoinTable()
-  roles: Role[];
+  roles?: Role[];
 }
