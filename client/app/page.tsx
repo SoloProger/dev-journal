@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { Pagination } from '@/shared/ui/pagination/Pagination';
 import MainLayout from '@/shared/layouts/MainLayout';
 import PopularSection from '@/shared/components/popular-section/PopularSection';
-import PostList from '@/shared/components/posts/PostList';
+import PostList from '@/components/post/lists/posts/PostList';
 
 export default function Home() {
   return (

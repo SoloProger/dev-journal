@@ -3,21 +3,21 @@
 import { Card } from '@/shared/components/card/Card';
 import { Pagination } from '@/shared/ui/pagination/Pagination';
 import { usePosts } from '@/shared/api';
-import Filter from '@/shared/components/filters/Filter';
-import Button from '@/shared/ui/button/Button';
 import { useState } from 'react';
 import { Modal } from '@/shared/ui/modal/Modal';
-import PostForm from '@/components/post/forms/PostForm';
+import { useRouter } from 'next/navigation';
+import Filter from '@/shared/components/filters/Filter';
 
 export default function Posts() {
   const { posts, isError, isLoading } = usePosts();
-  const [isOpen, setOpen] = useState(false);
 
   const categories = [
     { name: 'Категория 1' },
     { name: 'Категория 2' },
     { name: 'Категория 3' },
   ];
+
+  const router = useRouter();
 
   return (
     <>
@@ -33,17 +33,13 @@ export default function Posts() {
               description={post.description}
               categories={categories}
               date="22.03.2023"
+              onClick={() => router.push(`/posts/${post.id}`)}
             />
           ))}
         </section>
         <Filter />
       </main>
       <Pagination count={[1, 2, 3, 4, 5]} />
-      {isOpen && (
-        <Modal open={setOpen}>
-          <PostForm />
-        </Modal>
-      )}
     </>
   );
 }

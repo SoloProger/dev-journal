@@ -1,10 +1,16 @@
-import { CardProps } from './card';
-import { CategorySup } from '@/shared/components/card/CategorySup';
+import { CardProps } from './props/card';
 import styles from './Card.module.scss';
+import CategorySup from './CategorySup';
 
-export function Card({ title, description, date, categories }: CardProps) {
+export function Card({
+  title,
+  description,
+  date,
+  categories,
+  onClick,
+}: CardProps) {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onClick}>
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-5">
           {categories?.map((category) => (
