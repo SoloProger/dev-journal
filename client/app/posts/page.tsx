@@ -25,7 +25,6 @@ export default function Posts() {
         <section className="w-[1040px] flex flex-col gap-8">
           <div className="flex justify-between items-center">
             <h2 className="text-4xl">Посты</h2>
-            <Button name="Добавить" onClick={() => setOpen(true)} />
           </div>
           {posts?.data.map((post: any) => (
             <Card
@@ -34,7 +33,6 @@ export default function Posts() {
               description={post.description}
               categories={categories}
               date="22.03.2023"
-              isEdit={true}
             />
           ))}
         </section>
