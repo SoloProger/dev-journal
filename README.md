@@ -6,14 +6,19 @@ ____
 
 На проекте пока что не устоявшегося стека. На разных этапах использовались: **Next.js**, **Node.js**, **PHP**
 
-Проект переписывается с PHP
+~~Проект переписывается с PHP~~
+**Update** у проекта новый стэк
 
 Следующая версия (0.0.3) будет выпущена уже в Сентябре.
 
 Текущий стек:
 * Backend:
-  * Node.js + Express (Я отказался от fastify, но код на нем есть в профиле)
-  * TypeORM 
+  * ~~Node.js + Express (Я отказался от fastify, но код на нем есть в профиле)~~
+  * ~~TypeORM~~
+  * SQLAlchemy
+  * Python/FastAPI
+  * Alembic
+  * Docker
   * PostgreSQL
 * Frontend:
   * Next.js + TS
@@ -32,11 +37,23 @@ ____
 
 * Склонировать проект `git clone ...`
 * Перейти в папку с проектом
-* Создать **env** файл и заполнить его использую шаблон (**env.example**)
-* Запустить миграции `npm run migration:run`
-* Запустить сервер (_hot reload_) `npm run server:watch`
-* Запустить клиент `npm run client`
+* Перейти в папку `server`
+  * Создать **env** файл и заполнить его использую шаблон (**env.example**)
+  * Запустить миграции `alembic upgrade head`
+  * Запустить сервер `uvicorn main:app --reload`
+* Перейти в папку `client`
+  * Запустить клиент `npm run dev`
 
 ### Docker
 
-Настройка будет позже
+Для запуска через докер необходимо:
+
+* Перейти в папку `server`
+* Сбилдить образ `docker build -t dev-journal-img`
+* Создать и запустить контейнер `docker run -d --name dev-journal -p 8000:8000 dev-journal-img`
+
+### Docker-compose
+
+Soon...
+
+
