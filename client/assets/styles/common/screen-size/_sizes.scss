@@ -1,0 +1,33 @@
+@import '_breakpoints.scss';
+
+@mixin device($breakpoint) {
+  @if $breakpoint == phone {
+    @media screen and (max-width: $phone-breakpoint) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == table {
+    @media screen and (max-width: $table-breakpoint) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == laptop {
+    @media screen and (max-width: $laptop-breakpoint) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media screen and (max-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == large {
+    @media screen and (min-width: $large-breakpoint) {
+      @content;
+    }
+  }
+}
