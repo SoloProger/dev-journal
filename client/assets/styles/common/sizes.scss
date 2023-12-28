@@ -1,0 +1,35 @@
+@for $count from 0 through 1000 {
+  .w-#{$count} {
+    width: 1px * $count;
+  }
+
+  .max-w-#{$count} {
+    max-width: 1px * $count;
+  }
+
+  .h-#{$count} {
+    height: 1px * $count;
+  }
+}
+
+@for $count from 0 through 100 {
+  .wp-#{$count} {
+    width: 1% * $count;
+  }
+
+  .wpi-#{$count} {
+    width: 1% * $count !important;
+  }
+
+  .max-wp-#{$count} {
+    max-width: 1px * $count;
+  }
+
+  .hp-#{$count} {
+    height: 1% * $count;
+  }
+
+  .h-vh-#{$count} {
+    height: 1vh * $count;
+  }
+}

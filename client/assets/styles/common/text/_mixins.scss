@@ -1,0 +1,22 @@
+@mixin font-styles($font-size, $font-style, $font-weight, $line-height) {
+  font-size: $font-size;
+  font-style: $font-style;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+@mixin heading-1() {
+  @include font-styles(30px, normal, 400, normal);
+}
+
+@mixin heading-2() {
+  @include font-styles(24px, normal, 400, normal);
+}
+
+@mixin text-1() {
+  @include font-styles(18px, normal, 400, normal);
+}
+
+@mixin text-2() {
+  @include font-styles(16px, normal, 400, normal);
+}

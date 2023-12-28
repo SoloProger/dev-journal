@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1>Welcome to the homepage</h1>
-    <test-component></test-component>
-    <app-alert></app-alert>
-  </div>
+  <div></div>
 </template>
 <script setup lang="ts"></script>
+
+<style lang="scss">
+@use "~/assets/styles/main.scss";
+</style>

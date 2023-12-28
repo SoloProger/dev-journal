@@ -1,0 +1,31 @@
+@for $count from 0 through 100 {
+  .mb-#{$count} {
+    margin-bottom: 1px * $count;
+  }
+
+  .mt-#{$count} {
+    margin-top: 1px * $count;
+  }
+
+  .ml-#{$count} {
+    margin-left: 1px * $count;
+  }
+
+  .mr-#{$count} {
+    margin-right: 1px * $count;
+  }
+
+  .p-#{$count} {
+    padding: 1px * $count;
+  }
+
+  .p-x-#{$count} {
+    padding-left: 1px * $count;
+    padding-right: 1px * $count;
+  }
+
+  .p-y-#{$count} {
+    padding-top: 1px * $count;
+    padding-bottom: 1px * $count;
+  }
+}

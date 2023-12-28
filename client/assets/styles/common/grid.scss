@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+}
+
+.col-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rows-auto {
+  grid-template-rows: auto;
+}
